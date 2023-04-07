@@ -1,6 +1,18 @@
+body {
+  min-width: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
 .grid {
+
   display: flex;
   flex-wrap: wrap;
-  width: 400px;
-  height: 300px;
+  /* flex-wrap: wrap; */
+  width: 30rem;
+  height: 10rem;
 }

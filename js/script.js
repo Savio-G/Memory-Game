@@ -49,7 +49,6 @@ const cardArray = [
         img: 'images/hotdog.png'
     }
 ]
-console.log(cardArray)
 let choosenCard = []
 let cardChoosenIds = []
 let cardsWon = []
@@ -80,10 +79,10 @@ function matchCard() {
 
     if (choosenCard[0] == choosenCard[1]) {
         alert('you have a match')
-        card[cardChoosenIds[0]].setAttribute('src', 'images/white.png')
-        card[cardChoosenIds[1]].setAttribute('src', 'images/white.png')
-        card[cardChoosenIds[0]].removeEventListener('click', flipCard)
-        card[cardChoosenIds[1]].removeEventListener('click', flipCard)
+        card[optionOne].setAttribute('src', 'images/white.png')
+        card[optionTwo].setAttribute('src', 'images/white.png')
+        card[optionOne].removeEventListener('click', flipCard)
+        card[optionTwo].removeEventListener('click', flipCard)
         cardsWon.push(choosenCard)
 
 
@@ -96,7 +95,6 @@ function matchCard() {
 
     }
     else {
-        alert('Nice try, Please try again')
         card[cardChoosenIds[0]].setAttribute('src', 'images/blank.png')
         card[cardChoosenIds[1]].setAttribute('src', 'images/blank.png')
     }
@@ -107,6 +105,12 @@ function matchCard() {
 
 function flipCard() {
     const cardId = this.getAttribute('card-id')
+
+    // Preventing selecting the same card
+    if (cardChoosenIds.includes(cardId)) {
+        return
+    }
+
     choosenCard.push(cardArray[cardId].name)
     cardChoosenIds.push(cardId)
     // console.log(choosenCard, cardChoosenIds)
